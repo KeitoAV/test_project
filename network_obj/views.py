@@ -59,7 +59,7 @@ class NetworkObjectListView(ListAPIView):
     def get(self, request, *args, **kwargs):
         country = request.GET.get('country', None)
         if country:
-            self.queryset = self.queryset.filter(contact_info__country__icontains=country)
+            self.queryset = self.queryset.filter(country__icontains=country)
         return super().get(self, *args, **kwargs)
 
 
