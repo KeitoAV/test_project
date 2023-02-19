@@ -1,3 +1,4 @@
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import permissions
 from rest_framework.generics import (
     CreateAPIView,
@@ -55,12 +56,14 @@ class NetworkObjectListView(ListAPIView):
     queryset = NetworkObject.objects.all()
     permission_classes = [permissions.IsAuthenticated]
     serializer_class = NetworkObjectSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['country']
 
-    def get(self, request, *args, **kwargs):
-        country = request.GET.get('country', None)
-        if country:
-            self.queryset = self.queryset.filter(country__icontains=country)
-        return super().get(self, *args, **kwargs)
+    # def get(self, request, *args, **kwargs):
+    #     country = request.GET.get('country', None)
+    #     if country:
+    #         self.queryset = self.queryset.filter(country__icontains=country)
+    #     return super().get(self, *args, **kwargs)
 
 
 class NetworkObjectView(RetrieveUpdateDestroyAPIView):
