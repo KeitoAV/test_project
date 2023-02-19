@@ -5,10 +5,16 @@ from rest_framework.generics import (
     RetrieveUpdateDestroyAPIView
 )
 
-from network_obj.models import Product, NetworkObject
-
-from network_obj.serializers import NetworkObjectCreateSerializer, NetworkObjectSerializer, \
-    ProductCreateSerializer, ProductSerializer
+from network_obj.models import (
+    NetworkObject,
+    Product
+)
+from network_obj.serializers import (
+    NetworkObjectCreateSerializer,
+    NetworkObjectSerializer,
+    ProductCreateSerializer,
+    ProductSerializer
+)
 
 
 # product

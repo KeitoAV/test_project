@@ -3,8 +3,6 @@
 ### Тестовое задание для старта трудоустройства.
 
  - Python
- - Django 
+ - Django
  - DRF
- - PostgreSQL 
-
-
+ - PostgreSQL

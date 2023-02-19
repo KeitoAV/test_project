@@ -50,10 +50,10 @@ class NetworkObject(models.Model):
 
     created = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
     products = models.ManyToManyField('Product', verbose_name='Товары', blank=True)
-    debt = models.FloatField(verbose_name="Задолженность", default=0.0,
+    debt = models.FloatField(verbose_name='Задолженность', default=0.0,
                              validators=([MinValueValidator(0)]))
 
-    user = models.ForeignKey(User, verbose_name="Сотрудник", related_name='user',
+    user = models.ForeignKey(User, verbose_name='Сотрудник', related_name='user',
                              on_delete=models.CASCADE, null=True,
                              blank=True)
 
