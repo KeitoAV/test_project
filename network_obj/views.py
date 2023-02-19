@@ -52,22 +52,16 @@ class NetworkObjectCreateView(CreateAPIView):
 
 
 class NetworkObjectListView(ListAPIView):
-    """Показать список объектов торговой сети с фильтрацией по стране"""
+    """Показать список объектов торговой сети, фильтрация по стране"""
     queryset = NetworkObject.objects.all()
     permission_classes = [permissions.IsAuthenticated]
     serializer_class = NetworkObjectSerializer
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['country']
 
-    # def get(self, request, *args, **kwargs):
-    #     country = request.GET.get('country', None)
-    #     if country:
-    #         self.queryset = self.queryset.filter(country__icontains=country)
-    #     return super().get(self, *args, **kwargs)
-
 
 class NetworkObjectView(RetrieveUpdateDestroyAPIView):
-    """Детализация, обновление, удаление об объекте торговой сети"""
+    """Детализация, обновление, удаление информации об объекте торговой сети"""
     queryset = NetworkObject.objects.all()
     serializer_class = NetworkObjectSerializer
     permission_classes = [permissions.IsAuthenticated]

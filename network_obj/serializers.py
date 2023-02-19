@@ -1,12 +1,12 @@
 from rest_framework import serializers
 
-# product
 from network_obj.models import (
     NetworkObject,
     Product
 )
 
 
+# product
 class ProductCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
